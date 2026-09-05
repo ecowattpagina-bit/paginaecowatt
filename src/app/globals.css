@@ -25,7 +25,7 @@
   --secondary: #e8f6fc;
   --secondary-foreground: #00558f;
   --muted: #e8f6fc;
-  --muted-foreground: #0c2a3f/70;
+  --muted-foreground: color-mix(in srgb, #0c2a3f 70%, transparent);
   --accent: #4db8e8;
   --accent-foreground: #003d68;
   --destructive: #dc2626;
@@ -107,6 +107,12 @@ html {
 
 body {
   overflow-x: hidden;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
 }
 
 @layer base {

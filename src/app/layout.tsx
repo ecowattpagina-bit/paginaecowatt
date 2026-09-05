@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Manrope, Outfit } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const display = Outfit({
   variable: "--font-outfit",
@@ -21,13 +22,26 @@ export const metadata: Metadata = {
     "Construcción y energías renovables en Chillán Viejo, Ñuble. Solar, eólica y asesoría especializada. Atención con cita.",
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="es"
+      suppressHydrationWarning
       className={cn("h-full antialiased font-sans", display.variable, body.variable)}
     >
-      <body className="flex min-h-full flex-col font-sans">{children}</body>
+      <body
+        suppressHydrationWarning
+        className="flex min-h-full flex-col overflow-x-hidden font-sans"
+      >
+        {children}
+        <WhatsAppButton />
+      </body>
     </html>
   );
 }

@@ -1,6 +1,17 @@
 "use client";
 
 import Image from "next/image";
+import { MenuIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { WHATSAPP_URL } from "@/lib/site";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { useState } from "react";
 
 const links = [
@@ -17,11 +28,11 @@ export default function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8 lg:px-10">
         <a href="#inicio" className="relative z-10 block shrink-0">
           <Image
-            src="/logo-ecowatt.jpg"
+            src="/logo-ecowatt.png"
             alt="Ecowatt Chile"
-            width={160}
-            height={72}
-            className="h-11 w-auto object-contain sm:h-14"
+            width={200}
+            height={134}
+            className="h-12 w-auto max-w-[52vw] object-contain drop-shadow-[0_2px_10px_rgba(255,255,255,0.55)] sm:h-[4.25rem] sm:max-w-none"
             priority
           />
         </a>
@@ -30,62 +41,63 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium tracking-wide text-white/90 transition hover:text-[var(--sun)]"
+              className="text-sm font-medium tracking-wide text-white/90 transition hover:text-primary"
             >
               {link.label}
             </a>
           ))}
-          <a
-            href="#contacto"
-            className="rounded-md bg-[var(--sun)] px-4 py-2.5 text-sm font-bold text-[var(--navy-deep)] transition hover:bg-[var(--sun-deep)]"
-          >
-            Solicitar cita
-          </a>
-        </nav>
-        <button
-          type="button"
-          aria-label={open ? "Cerrar menú" : "Abrir menú"}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-          className="relative z-10 flex h-11 w-11 items-center justify-center rounded-md bg-white/15 text-white backdrop-blur-sm md:hidden"
-        >
-          <span className="sr-only">Menú</span>
-          <span className="flex w-5 flex-col gap-1.5">
-            <span
-              className={`h-0.5 w-full bg-white transition ${open ? "translate-y-2 rotate-45" : ""}`}
-            />
-            <span
-              className={`h-0.5 w-full bg-white transition ${open ? "opacity-0" : ""}`}
-            />
-            <span
-              className={`h-0.5 w-full bg-white transition ${open ? "-translate-y-2 -rotate-45" : ""}`}
-            />
-          </span>
-        </button>
-      </div>
-      {open ? (
-        <div className="border-t border-white/10 bg-[var(--navy-deep)]/95 px-5 py-6 backdrop-blur-md md:hidden">
-          <nav className="flex flex-col gap-4">
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="py-2 text-base font-medium text-white"
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href="#contacto"
-              onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center rounded-md bg-[var(--sun)] px-4 py-3 text-sm font-bold text-[var(--navy-deep)]"
-            >
-              Solicitar cita
+          <Button asChild size="lg" className="min-h-11 px-4 font-bold">
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+              <WhatsAppIcon className="size-4" />
+              WhatsApp
             </a>
-          </nav>
-        </div>
-      ) : null}
+          </Button>
+        </nav>
+        <Sheet open={open} onOpenChange={setOpen}>
+          <SheetTrigger asChild>
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon-lg"
+              aria-label="Abrir menú"
+              className="bg-white/15 text-white hover:bg-white/25 hover:text-white md:hidden"
+            >
+              <MenuIcon className="size-5" />
+            </Button>
+          </SheetTrigger>
+          <SheetContent
+            side="right"
+            className="border-navy-deep bg-navy-deep text-white sm:max-w-xs [&_[data-slot=sheet-close]]:text-white"
+          >
+            <SheetHeader>
+              <SheetTitle className="text-left text-white">Menú</SheetTitle>
+            </SheetHeader>
+            <nav className="flex flex-col gap-1 px-4 pb-6">
+              {links.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="rounded-lg px-3 py-3 text-base font-medium text-white/90 hover:bg-white/10"
+                >
+                  {link.label}
+                </a>
+              ))}
+              <Button asChild size="lg" className="mt-4 min-h-12 w-full font-bold">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setOpen(false)}
+                >
+                  <WhatsAppIcon className="size-5" />
+                  Hablar por WhatsApp
+                </a>
+              </Button>
+            </nav>
+          </SheetContent>
+        </Sheet>
+      </div>
     </header>
   );
 }
