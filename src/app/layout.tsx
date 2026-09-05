@@ -17,9 +17,9 @@ const body = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Ecowatt Chile | Construcción y energías renovables",
+  title: "Ecowatt Chile | Construcción y remodelaciones",
   description:
-    "Construcción y energías renovables en Chillán Viejo, Ñuble. Solar, eólica y asesoría especializada. Atención con cita.",
+    "Remodelaciones, viviendas, casas prefabricadas, muebles en drywall y revestimientos en Chillán Viejo, Ñuble. Cotizaciones a medida.",
 };
 
 export const viewport: Viewport = {

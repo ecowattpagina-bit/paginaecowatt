@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Sun, Wind, HardHat, MapPin, Mail, Globe } from "lucide-react";
+import { MapPin, Mail, Globe } from "lucide-react";
 import Header from "@/components/Header";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { Button } from "@/components/ui/button";
@@ -11,22 +11,46 @@ import { Separator } from "@/components/ui/separator";
 
 const servicios = [
   {
-    titulo: "Energía solar",
-    texto:
-      "Diseño e instalación de sistemas fotovoltaicos para hogares, empresas y proyectos productivos.",
-    icono: Sun,
+    titulo: "Remodelaciones",
+    texto: "Cotizaciones a medida para renovar tu casa o local.",
+    imagen:
+      "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=900&q=80",
+    alt: "Interior remodelado",
   },
   {
-    titulo: "Energía eólica",
-    texto:
-      "Evaluación e integración de soluciones eólicas complementarias para maximizar tu autonomía energética.",
-    icono: Wind,
+    titulo: "Casas prefabricadas a medida",
+    texto: "Casas prefabricadas diseñadas según tu terreno y presupuesto.",
+    imagen:
+      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80",
+    alt: "Estructura de casa en obra",
   },
   {
-    titulo: "Construcción y asesoría",
-    texto:
-      "Obras y consultoría técnica con enfoque en eficiencia energética y materiales de alto rendimiento.",
-    icono: HardHat,
+    titulo: "Muebles en drywall",
+    texto: "Closets, cocinas y walk-in a medida en yesocartón.",
+    imagen:
+      "https://images.unsplash.com/photo-1615874959474-d609969ee36d?auto=format&fit=crop&w=900&q=80",
+    alt: "Mueble de living a medida",
+  },
+  {
+    titulo: "Viviendas",
+    texto: "Construcción en general de viviendas y obras complementarias.",
+    imagen:
+      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=900&q=80",
+    alt: "Obra de construcción",
+  },
+  {
+    titulo: "Mediterránea Palomo 230 m²",
+    texto: "Casa mediterránea Palomo, proyecto de 230 m².",
+    imagen:
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80",
+    alt: "Casa de estilo contemporáneo",
+  },
+  {
+    titulo: "Cerámicos y revestimientos",
+    texto: "Proyectos a medida en cerámicos, muros y terminaciones.",
+    imagen:
+      "https://images.unsplash.com/photo-1615971677499-5467cbd13f15?auto=format&fit=crop&w=900&q=80",
+    alt: "Revestimiento cerámico",
   },
 ];
 
@@ -35,8 +59,8 @@ export default function Home() {
     <main className="flex-1">
       <section id="inicio" className="relative min-h-[100svh] overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2400&q=80"
-          alt="Paneles solares bajo cielo azul"
+          src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2400&q=80"
+          alt="Obra de construcción"
           fill
           priority
           className="object-cover object-center"
@@ -55,10 +79,10 @@ export default function Home() {
               </span>
             </p>
             <h1 className="mt-6 font-display text-2xl font-semibold leading-snug text-white sm:text-3xl md:text-4xl">
-              Construcción y energías renovables
+              Construcción, remodelaciones y viviendas a medida
             </h1>
             <p className="mt-4 max-w-md text-base leading-relaxed text-white/85 sm:text-lg">
-              Proyectos sostenibles con sol, viento y criterio técnico en la región de Ñuble.
+              Casas prefabricadas, drywall, cerámicos y obras en Chillán Viejo, Ñuble.
             </p>
             <div className="mt-8 flex w-full flex-col gap-3 sm:max-w-none sm:flex-row sm:items-center">
               <Button asChild size="lg" className="min-h-12 w-full px-6 text-base font-bold sm:w-auto">
@@ -100,29 +124,37 @@ export default function Home() {
               Servicios
             </p>
             <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-              Energía limpia y construcción responsable
+              Lo que hacemos
             </h2>
             <p className="mt-4 text-base leading-relaxed text-ink/70 sm:text-lg">
-              Integramos renovables y obras con un mismo objetivo: eficiencia real para tu proyecto.
+              Los mismos servicios de nuestro catálogo. Cotización a medida por WhatsApp.
             </p>
           </div>
-          <ul className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12">
-            {servicios.map((item) => {
-              const Icon = item.icono;
-              return (
-                <li key={item.titulo} className="group">
-                  <div className="flex size-12 items-center justify-center rounded-lg bg-secondary text-sun-deep transition group-hover:bg-navy group-hover:text-primary">
-                    <Icon className="size-6" aria-hidden />
-                  </div>
-                  <h3 className="mt-5 font-display text-xl font-bold text-ink">
+          <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+            {servicios.map((item) => (
+              <li
+                key={item.titulo}
+                className="overflow-hidden rounded-2xl border border-border bg-card shadow-[0_16px_40px_-28px_rgba(0,61,104,0.35)]"
+              >
+                <div className="relative aspect-[4/3] w-full">
+                  <Image
+                    src={item.imagen}
+                    alt={item.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="p-5">
+                  <h3 className="font-display text-lg font-bold text-ink sm:text-xl">
                     {item.titulo}
                   </h3>
-                  <p className="mt-3 text-base leading-relaxed text-ink/70">
+                  <p className="mt-2 text-sm leading-relaxed text-ink/70 sm:text-base">
                     {item.texto}
                   </p>
-                </li>
-              );
-            })}
+                </div>
+              </li>
+            ))}
           </ul>
         </div>
       </section>
@@ -131,8 +163,8 @@ export default function Home() {
         <div className="grid lg:grid-cols-2">
           <div className="relative min-h-[320px] sm:min-h-[420px] lg:min-h-full">
             <Image
-              src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1600&q=80"
-              alt="Parque eólico al atardecer"
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80"
+              alt="Vivienda contemporánea"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
@@ -144,12 +176,11 @@ export default function Home() {
               Nosotros
             </p>
             <h2 className="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">
-              Con raíces en Ñuble, mirada hacia el futuro
+              Construcción y remodelación en Ñuble
             </h2>
             <p className="mt-5 max-w-lg text-base leading-relaxed text-white/80 sm:text-lg">
-              Desde Chillán Viejo acompañamos proyectos de construcción y energías renovables con
-              atención personalizada. Trabajamos con cita para dedicar el tiempo que tu obra o
-              sistema energético necesita.
+              Desde Chillán Viejo armamos viviendas, remodelaciones, muebles en drywall y
+              revestimientos a medida. Trabajamos con cita para cotizar tu proyecto con calma.
             </p>
             <p className="mt-6 text-sm font-semibold text-sky">
               Abierto ahora · Solo con cita
@@ -304,7 +335,7 @@ export default function Home() {
             />
             <div>
               <p className="font-display text-lg font-bold">Ecowatt Chile</p>
-              <p className="text-sm text-white/65">Construcción y energías renovables</p>
+              <p className="text-sm text-white/65">Construcción y remodelaciones</p>
             </div>
           </div>
           <p className="text-sm text-white/55">
