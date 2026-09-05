@@ -32,7 +32,7 @@ export default function Header() {
             alt="Ecowatt Chile"
             width={200}
             height={134}
-            className="h-12 w-auto max-w-[52vw] object-contain drop-shadow-[0_2px_10px_rgba(255,255,255,0.55)] sm:h-[4.25rem] sm:max-w-none"
+            className="h-12 w-auto max-w-[52vw] object-contain drop-shadow-[0_1px_8px_rgba(0,0,0,0.35)] sm:h-[4.25rem] sm:max-w-none"
             priority
           />
         </a>

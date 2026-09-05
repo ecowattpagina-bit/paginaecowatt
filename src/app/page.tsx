@@ -331,7 +331,7 @@ export default function Home() {
               alt="Ecowatt Chile"
               width={160}
               height={107}
-              className="h-14 w-auto object-contain drop-shadow-[0_2px_8px_rgba(255,255,255,0.35)]"
+              className="h-14 w-auto object-contain drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)]"
             />
             <div>
               <p className="font-display text-lg font-bold">Ecowatt Chile</p>
