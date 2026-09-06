@@ -9,7 +9,6 @@ import { TRABAJO_DEL_MES } from "@/lib/trabajo-del-mes";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Separator } from "@/components/ui/separator";
 
 const servicios = [
   {
@@ -27,11 +26,10 @@ const servicios = [
     alt: "Estructura de casa en obra",
   },
   {
-    titulo: "Muebles en drywall",
-    texto: "Closets, cocinas y walk-in a medida en yesocartón.",
-    imagen:
-      "https://images.unsplash.com/photo-1615874959474-d609969ee36d?auto=format&fit=crop&w=900&q=80",
-    alt: "Mueble de living a medida",
+    titulo: "Muebles a medida",
+    texto: "Muebles a medida para locales comerciales, cocina y dormitorios.",
+    imagen: "/servicio-muebles.jpg",
+    alt: "Muebles a medida en cocina, dormitorio y local comercial",
   },
   {
     titulo: "Viviendas",
@@ -72,40 +70,101 @@ export default function Home() {
         <div className="absolute -right-20 top-16 h-72 w-72 rounded-full bg-sun/25 blur-3xl sm:h-96 sm:w-96" />
         <div className="absolute -left-16 bottom-24 h-64 w-64 rounded-full bg-sky/20 blur-3xl" />
         <Header />
-        <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-5 pb-28 pt-28 sm:px-8 sm:pb-28 lg:px-10 lg:pb-32">
-          <div className="max-w-2xl">
-            <Image
-              src="/logo-ecowatt.png"
-              alt="Ecowatt Chile"
-              width={520}
-              height={348}
-              priority
-              className="h-auto w-[min(100%,18rem)] object-contain drop-shadow-[0_4px_18px_rgba(0,0,0,0.35)] sm:w-[min(100%,22rem)] md:w-[min(100%,26rem)]"
-            />
-            <h1 className="mt-6 font-display text-2xl font-semibold leading-snug text-white sm:text-3xl md:text-4xl">
-              Asesoría en ingeniería y construcción
-            </h1>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg">
-              Casas a medida, casas prefabricadas, energías renovables, quinchos, piscinas,
-              mantenciones, renovaciones y remodelaciones en Chillán y la región de Ñuble.
-              Número uno en servicios y garantía.
-            </p>
-            <div className="mt-8 flex w-full flex-col gap-3 sm:max-w-none sm:flex-row sm:items-center">
-              <Button asChild size="lg" className="min-h-12 w-full px-6 text-base font-bold sm:w-auto">
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                  <WhatsAppIcon className="size-5" />
-                  Hablar por WhatsApp
-                </a>
+        <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-center px-5 pb-16 pt-24 sm:px-8 sm:pb-20 lg:px-10 lg:pb-24">
+          <div className="grid items-center gap-6 lg:grid-cols-[1.25fr_0.75fr] lg:gap-8">
+            <div className="max-w-xl">
+              <Image
+                src="/logo-ecowatt.png"
+                alt="Ecowatt Chile"
+                width={200}
+                height={134}
+                priority
+                className="h-auto w-[min(100%,7rem)] object-contain drop-shadow-[0_3px_12px_rgba(0,0,0,0.35)] sm:w-[min(100%,8rem)]"
+              />
+              <h1 className="mt-4 font-display text-xl font-semibold leading-snug text-white sm:text-2xl md:text-3xl">
+                Asesoría en ingeniería y construcción
+              </h1>
+              <p className="mt-3 max-w-lg text-sm leading-relaxed text-white/85 sm:text-base">
+                Casas a medida, casas prefabricadas, energías renovables, quinchos, piscinas,
+                mantenciones, renovaciones y remodelaciones en Chillán y la región de Ñuble.
+                Número uno en servicios y garantía.
+              </p>
+              <div className="mt-5 flex w-full flex-col gap-2.5 sm:flex-row sm:items-center">
+                <Button asChild size="lg" className="min-h-11 w-full px-5 text-sm font-bold sm:w-auto">
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                    <WhatsAppIcon className="size-4" />
+                    Hablar por WhatsApp
+                  </a>
+                </Button>
+              </div>
+            </div>
+
+            <form
+              id="contacto"
+              action={`mailto:${EMAIL}`}
+              method="get"
+              encType="text/plain"
+              className="mx-auto flex w-full max-w-sm flex-col gap-3 rounded-xl border border-white/15 bg-white/95 p-4 shadow-[0_18px_40px_-24px_rgba(0,0,0,0.55)] backdrop-blur-sm sm:p-5 lg:mx-0"
+            >
+              <div>
+                <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-wave">
+                  Contacto
+                </p>
+                <p className="mt-0.5 font-display text-lg font-bold text-ink">
+                  Cotiza tu proyecto
+                </p>
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="nombre" className="text-xs">
+                  Nombre
+                </Label>
+                <Input
+                  id="nombre"
+                  name="nombre"
+                  type="text"
+                  required
+                  className="min-h-10 bg-foam px-3 text-sm md:text-sm"
+                />
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="correo" className="text-xs">
+                  Correo
+                </Label>
+                <Input
+                  id="correo"
+                  name="correo"
+                  type="email"
+                  required
+                  className="min-h-10 bg-foam px-3 text-sm md:text-sm"
+                />
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="mensaje" className="text-xs">
+                  Mensaje
+                </Label>
+                <Textarea
+                  id="mensaje"
+                  name="mensaje"
+                  rows={2}
+                  required
+                  className="min-h-16 resize-y bg-foam px-3 py-2 text-sm md:text-sm"
+                />
+              </div>
+              <Button type="submit" size="lg" className="min-h-10 w-full text-sm font-bold">
+                Solicitar cita
               </Button>
               <Button
                 asChild
                 size="lg"
                 variant="outline"
-                className="min-h-12 w-full border-white/35 bg-transparent px-6 text-base font-semibold text-white hover:border-white hover:bg-white/10 hover:text-white sm:w-auto"
+                className="min-h-10 w-full border-[#25D366] text-sm text-[#128C4B] hover:bg-[#25D366]/10 hover:text-[#128C4B]"
               >
-                <a href="#contacto">Contactarnos</a>
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                  <WhatsAppIcon className="size-4" />
+                  Hablar por WhatsApp
+                </a>
               </Button>
-            </div>
+            </form>
           </div>
         </div>
         <div className="pointer-events-none absolute inset-x-0 bottom-0 overflow-hidden leading-none">
@@ -235,7 +294,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contacto" className="bg-mist py-20 sm:py-28">
+      <section id="datos-contacto" className="bg-mist py-20 sm:py-28">
         <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
           <div className="max-w-xl">
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-wave">
@@ -248,122 +307,66 @@ export default function Home() {
               Escríbenos por WhatsApp o agenda una visita. Estamos en Diguillín, Chillán Viejo.
             </p>
           </div>
-          <div className="mt-12 grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="space-y-8">
-              <div className="flex gap-3">
-                <MapPin className="mt-0.5 size-5 shrink-0 text-wave" aria-hidden />
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-wider text-wave">
-                    Dirección
-                  </p>
-                  <p className="mt-2 text-base leading-relaxed text-ink sm:text-lg">
-                    Huambalí 1123, 3821027 Diguillín
-                    <br />
-                    Chillán Viejo, Ñuble, Chile
-                  </p>
-                </div>
-              </div>
-              <Separator className="bg-navy/10" />
-              <div className="flex gap-3">
-                <Mail className="mt-0.5 size-5 shrink-0 text-wave" aria-hidden />
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-wider text-wave">
-                    Correo
-                  </p>
-                  <a
-                    href={`mailto:${EMAIL}`}
-                    className="mt-2 inline-block break-all text-base font-semibold text-navy transition hover:text-sun-deep sm:text-lg"
-                  >
-                    {EMAIL}
-                  </a>
-                </div>
-              </div>
-              <Separator className="bg-navy/10" />
-              <div className="flex gap-3">
-                <WhatsAppIcon className="mt-0.5 size-5 shrink-0 text-wave" />
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-wider text-wave">
-                    WhatsApp
-                  </p>
-                  <a
-                    href={WHATSAPP_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-2 inline-block break-all text-base font-semibold text-navy transition hover:text-sun-deep sm:text-lg"
-                  >
-                    +56 9 9546 7686
-                  </a>
-                </div>
-              </div>
-              <Separator className="bg-navy/10" />
-              <div className="flex gap-3">
-                <Globe className="mt-0.5 size-5 shrink-0 text-wave" aria-hidden />
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-wider text-wave">
-                    Sitio web
-                  </p>
-                  <a
-                    href={WEBSITE_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-2 inline-block break-all text-base font-semibold text-navy transition hover:text-sun-deep sm:text-lg"
-                  >
-                    www.ecowattchile.cl
-                  </a>
-                </div>
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="flex gap-3">
+              <MapPin className="mt-0.5 size-5 shrink-0 text-wave" aria-hidden />
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wider text-wave">
+                  Dirección
+                </p>
+                <p className="mt-2 text-base leading-relaxed text-ink">
+                  Huambalí 1123, 3821027 Diguillín
+                  <br />
+                  Chillán Viejo, Ñuble, Chile
+                </p>
               </div>
             </div>
-            <form
-              action={`mailto:${EMAIL}`}
-              method="get"
-              encType="text/plain"
-              className="flex flex-col gap-5 rounded-2xl border border-border bg-card p-6 shadow-[0_20px_50px_-28px_rgba(0,61,104,0.35)] sm:p-8"
-            >
-              <div className="space-y-2">
-                <Label htmlFor="nombre">Nombre</Label>
-                <Input
-                  id="nombre"
-                  name="nombre"
-                  type="text"
-                  required
-                  className="min-h-12 bg-foam px-4 text-base md:text-base"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="correo">Correo</Label>
-                <Input
-                  id="correo"
-                  name="correo"
-                  type="email"
-                  required
-                  className="min-h-12 bg-foam px-4 text-base md:text-base"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="mensaje">Mensaje</Label>
-                <Textarea
-                  id="mensaje"
-                  name="mensaje"
-                  rows={4}
-                  required
-                  className="min-h-28 resize-y bg-foam px-4 py-3 text-base md:text-base"
-                />
-              </div>
-              <Button type="submit" size="lg" className="mt-1 min-h-12 w-full text-base font-bold sm:w-auto">
-                Solicitar cita
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="min-h-12 w-full border-[#25D366] text-[#128C4B] hover:bg-[#25D366]/10 hover:text-[#128C4B] sm:w-auto"
-              >
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                  <WhatsAppIcon className="size-5" />
-                  Hablar por WhatsApp
+            <div className="flex gap-3">
+              <Mail className="mt-0.5 size-5 shrink-0 text-wave" aria-hidden />
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wider text-wave">
+                  Correo
+                </p>
+                <a
+                  href={`mailto:${EMAIL}`}
+                  className="mt-2 inline-block break-all text-base font-semibold text-navy transition hover:text-sun-deep"
+                >
+                  {EMAIL}
                 </a>
-              </Button>
-            </form>
+              </div>
+            </div>
+            <div className="flex gap-3">
+              <WhatsAppIcon className="mt-0.5 size-5 shrink-0 text-wave" />
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wider text-wave">
+                  WhatsApp
+                </p>
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-block break-all text-base font-semibold text-navy transition hover:text-sun-deep"
+                >
+                  +56 9 9546 7686
+                </a>
+              </div>
+            </div>
+            <div className="flex gap-3">
+              <Globe className="mt-0.5 size-5 shrink-0 text-wave" aria-hidden />
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wider text-wave">
+                  Sitio web
+                </p>
+                <a
+                  href={WEBSITE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-block break-all text-base font-semibold text-navy transition hover:text-sun-deep"
+                >
+                  www.ecowattchile.cl
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

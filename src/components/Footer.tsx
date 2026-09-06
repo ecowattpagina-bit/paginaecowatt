@@ -4,6 +4,7 @@ import { Globe, Mail, MapPin, Phone } from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 import InstagramIcon from "@/components/InstagramIcon";
 import FacebookIcon from "@/components/FacebookIcon";
+import YouTubeIcon from "@/components/YouTubeIcon";
 import {
   ADDRESS_LINES,
   EMAIL,
@@ -14,6 +15,7 @@ import {
   SOCIAL_LINKS,
   WEBSITE_URL,
   WHATSAPP_URL,
+  YOUTUBE_URL,
 } from "@/lib/site";
 
 const nav = [
@@ -27,6 +29,7 @@ const nav = [
 function SocialIcon({ id }: { id: (typeof SOCIAL_LINKS)[number]["id"] }) {
   if (id === "instagram") return <InstagramIcon className="size-5" />;
   if (id === "facebook") return <FacebookIcon className="size-5" />;
+  if (id === "youtube") return <YouTubeIcon className="size-5" />;
   if (id === "whatsapp") return <WhatsAppIcon className="size-5" />;
   if (id === "web") return <Globe className="size-5" aria-hidden />;
   return <Mail className="size-5" aria-hidden />;
@@ -61,7 +64,7 @@ export default function Footer() {
                 target={item.id === "email" ? undefined : "_blank"}
                 rel={item.id === "email" ? undefined : "noopener noreferrer"}
                 aria-label={item.label}
-                className="inline-flex size-11 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-primary hover:text-navy-deep"
+                className={`inline-flex size-11 items-center justify-center rounded-full transition ${item.className}`}
               >
                 <SocialIcon id={item.id} />
               </a>
@@ -97,8 +100,9 @@ export default function Footer() {
                 href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/75 transition hover:text-primary"
+                className="inline-flex items-center gap-2 text-white/75 transition hover:text-primary"
               >
+                <InstagramIcon className="size-4 shrink-0 text-[#E4405F]" />
                 Instagram · @ecowattchile
               </a>
             </li>
@@ -107,9 +111,21 @@ export default function Footer() {
                 href={FACEBOOK_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/75 transition hover:text-primary"
+                className="inline-flex items-center gap-2 text-white/75 transition hover:text-primary"
               >
+                <FacebookIcon className="size-4 shrink-0 text-[#1877F2]" />
                 Facebook · Ecowatt Chile
+              </a>
+            </li>
+            <li>
+              <a
+                href={YOUTUBE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-white/75 transition hover:text-primary"
+              >
+                <YouTubeIcon className="size-4 shrink-0 text-[#FF0000]" />
+                YouTube · Ecowatt Chile
               </a>
             </li>
             <li>
@@ -117,8 +133,9 @@ export default function Footer() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/75 transition hover:text-primary"
+                className="inline-flex items-center gap-2 text-white/75 transition hover:text-primary"
               >
+                <WhatsAppIcon className="size-4 shrink-0 text-[#25D366]" />
                 WhatsApp · {PHONE_DISPLAY}
               </a>
             </li>
@@ -127,8 +144,9 @@ export default function Footer() {
                 href={WEBSITE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="break-all text-white/75 transition hover:text-primary"
+                className="inline-flex items-center gap-2 break-all text-white/75 transition hover:text-primary"
               >
+                <Globe className="size-4 shrink-0 text-sky" aria-hidden />
                 www.ecowattchile.cl
               </a>
             </li>
