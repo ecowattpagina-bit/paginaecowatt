@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_URL, EMAIL, WEBSITE_URL } from "@/lib/site";
+import { TRABAJO_DEL_MES } from "@/lib/trabajo-del-mes";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -161,6 +162,46 @@ export default function Home() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section id="trabajo-del-mes" className="bg-white py-16 sm:py-24">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
+          <div className="max-w-xl">
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-wave">
+              {TRABAJO_DEL_MES.etiqueta}
+            </p>
+            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+              {TRABAJO_DEL_MES.titulo}
+            </h2>
+            <p className="mt-2 text-sm font-semibold text-sun-deep">{TRABAJO_DEL_MES.mes}</p>
+            <p className="mt-4 text-base leading-relaxed text-ink/70 sm:text-lg">
+              {TRABAJO_DEL_MES.texto}
+            </p>
+          </div>
+          <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-card shadow-[0_20px_50px_-28px_rgba(0,61,104,0.35)] sm:mt-10">
+            <div className="relative aspect-[3/4] w-full sm:aspect-[4/5] md:aspect-[16/12]">
+              <Image
+                src={TRABAJO_DEL_MES.imagen}
+                alt={TRABAJO_DEL_MES.alt}
+                fill
+                className="object-contain bg-foam object-top md:object-center"
+                sizes="(max-width: 1024px) 100vw, 1152px"
+                priority={false}
+              />
+            </div>
+            <div className="flex flex-col gap-4 border-t border-border p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+              <p className="text-sm leading-relaxed text-ink/70 sm:max-w-md sm:text-base">
+                Asesoría gratuita · Presupuesto sin compromiso
+              </p>
+              <Button asChild size="lg" className="min-h-12 w-full font-bold sm:w-auto">
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                  <WhatsAppIcon className="size-5" />
+                  {TRABAJO_DEL_MES.cta}
+                </a>
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
 

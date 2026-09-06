@@ -17,6 +17,7 @@ import { useState } from "react";
 
 const links = [
   { href: "/#servicios", label: "Servicios" },
+  { href: "/#trabajo-del-mes", label: "Del mes" },
   { href: "/#nosotros", label: "Nosotros" },
   { href: "/galeria", label: "Galería" },
   { href: "/#contacto", label: "Contacto" },

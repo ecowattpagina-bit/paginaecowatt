@@ -18,6 +18,7 @@ import {
 
 const nav = [
   { href: "/#servicios", label: "Servicios" },
+  { href: "/#trabajo-del-mes", label: "Trabajo del mes" },
   { href: "/#nosotros", label: "Nosotros" },
   { href: "/galeria", label: "Galería" },
   { href: "/#contacto", label: "Contacto" },
