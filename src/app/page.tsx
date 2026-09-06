@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { MapPin, Mail, Globe } from "lucide-react";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { Button } from "@/components/ui/button";
-import { WHATSAPP_URL } from "@/lib/site";
+import { WHATSAPP_URL, EMAIL, WEBSITE_URL } from "@/lib/site";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -225,10 +226,10 @@ export default function Home() {
                     Correo
                   </p>
                   <a
-                    href="mailto:carayam@live.cl"
+                    href={`mailto:${EMAIL}`}
                     className="mt-2 inline-block break-all text-base font-semibold text-navy transition hover:text-sun-deep sm:text-lg"
                   >
-                    carayam@live.cl
+                    {EMAIL}
                   </a>
                 </div>
               </div>
@@ -257,7 +258,7 @@ export default function Home() {
                     Sitio web
                   </p>
                   <a
-                    href="http://www.ecowattchile.cl"
+                    href={WEBSITE_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-2 inline-block break-all text-base font-semibold text-navy transition hover:text-sun-deep sm:text-lg"
@@ -268,7 +269,7 @@ export default function Home() {
               </div>
             </div>
             <form
-              action="mailto:carayam@live.cl"
+              action={`mailto:${EMAIL}`}
               method="get"
               encType="text/plain"
               className="flex flex-col gap-5 rounded-2xl border border-border bg-card p-6 shadow-[0_20px_50px_-28px_rgba(0,61,104,0.35)] sm:p-8"
@@ -322,27 +323,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="relative overflow-hidden bg-navy-deep text-white">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sun via-sky to-wave" />
-        <div className="mx-auto flex max-w-6xl flex-col gap-8 px-5 py-12 pb-28 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:pb-12 lg:px-10">
-          <div className="flex min-w-0 items-center gap-4">
-            <Image
-              src="/logo-ecowatt.png"
-              alt="Ecowatt Chile"
-              width={160}
-              height={107}
-              className="h-14 w-auto object-contain drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)]"
-            />
-            <div>
-              <p className="font-display text-lg font-bold">Ecowatt Chile</p>
-              <p className="text-sm text-white/65">Construcción y remodelaciones</p>
-            </div>
-          </div>
-          <p className="text-sm text-white/55">
-            © {new Date().getFullYear()} Ecowatt Chile. Chillán Viejo, Ñuble.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

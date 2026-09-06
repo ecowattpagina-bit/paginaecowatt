@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import InstagramGallery from "@/components/InstagramGallery";
 import { getInstagramMedia } from "@/lib/instagram";
 import { INSTAGRAM_URL } from "@/lib/site";
@@ -58,27 +57,7 @@ export default async function GaleriaPage() {
         <InstagramGallery items={items} />
       </section>
 
-      <footer className="relative overflow-hidden bg-navy-deep text-white">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sun via-sky to-wave" />
-        <div className="mx-auto flex max-w-6xl flex-col gap-8 px-5 py-12 pb-28 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:pb-12 lg:px-10">
-          <div className="flex min-w-0 items-center gap-4">
-            <Image
-              src="/logo-ecowatt.png"
-              alt="Ecowatt Chile"
-              width={160}
-              height={107}
-              className="h-14 w-auto object-contain drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)]"
-            />
-            <div>
-              <p className="font-display text-lg font-bold">Ecowatt Chile</p>
-              <p className="text-sm text-white/65">Construcción y remodelaciones</p>
-            </div>
-          </div>
-          <Link href="/" className="text-sm font-semibold text-primary hover:underline">
-            Volver al inicio
-          </Link>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }
