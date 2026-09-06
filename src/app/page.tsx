@@ -73,12 +73,14 @@ export default function Home() {
         <Header />
         <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-5 pb-28 pt-28 sm:px-8 sm:pb-28 lg:px-10 lg:pb-32">
           <div className="max-w-2xl">
-            <p className="font-display text-[2.35rem] font-extrabold leading-none tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
-              Ecowatt
-              <span className="mt-1 block text-[0.55em] font-semibold tracking-wide text-primary sm:mt-2">
-                Chile
-              </span>
-            </p>
+            <Image
+              src="/logo-ecowatt.png"
+              alt="Ecowatt Chile"
+              width={520}
+              height={348}
+              priority
+              className="h-auto w-[min(100%,18rem)] object-contain drop-shadow-[0_4px_18px_rgba(0,0,0,0.35)] sm:w-[min(100%,22rem)] md:w-[min(100%,26rem)]"
+            />
             <h1 className="mt-6 font-display text-2xl font-semibold leading-snug text-white sm:text-3xl md:text-4xl">
               Construcción, remodelaciones y viviendas a medida
             </h1>
