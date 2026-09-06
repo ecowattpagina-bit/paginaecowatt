@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { MenuIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_URL } from "@/lib/site";
@@ -15,18 +16,30 @@ import {
 import { useState } from "react";
 
 const links = [
-  { href: "#servicios", label: "Servicios" },
-  { href: "#nosotros", label: "Nosotros" },
-  { href: "#contacto", label: "Contacto" },
+  { href: "/#servicios", label: "Servicios" },
+  { href: "/#nosotros", label: "Nosotros" },
+  { href: "/galeria", label: "Galería" },
+  { href: "/#contacto", label: "Contacto" },
 ];
 
-export default function Header() {
+export default function Header({
+  variant = "transparent",
+}: {
+  variant?: "transparent" | "solid";
+}) {
   const [open, setOpen] = useState(false);
+  const solid = variant === "solid";
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50">
+    <header
+      className={
+        solid
+          ? "absolute inset-x-0 top-0 z-50 border-b border-white/10 bg-navy-deep/80 backdrop-blur-md"
+          : "absolute inset-x-0 top-0 z-50"
+      }
+    >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8 lg:px-10">
-        <a href="#inicio" className="relative z-10 block shrink-0">
+        <Link href="/" className="relative z-10 block shrink-0">
           <Image
             src="/logo-ecowatt.png"
             alt="Ecowatt Chile"
@@ -35,16 +48,16 @@ export default function Header() {
             className="h-12 w-auto max-w-[52vw] object-contain drop-shadow-[0_1px_8px_rgba(0,0,0,0.35)] sm:h-[4.25rem] sm:max-w-none"
             priority
           />
-        </a>
+        </Link>
         <nav className="hidden items-center gap-8 md:flex">
           {links.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="text-sm font-medium tracking-wide text-white/90 transition hover:text-primary"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
           <Button asChild size="lg" className="min-h-11 px-4 font-bold">
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
@@ -74,14 +87,14 @@ export default function Header() {
             </SheetHeader>
             <nav className="flex flex-col gap-1 px-4 pb-6">
               {links.map((link) => (
-                <a
+                <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
                   className="rounded-lg px-3 py-3 text-base font-medium text-white/90 hover:bg-white/10"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
               <Button asChild size="lg" className="mt-4 min-h-12 w-full font-bold">
                 <a
