@@ -47,11 +47,11 @@ const servicios = [
     alt: "Casa de estilo contemporáneo",
   },
   {
-    titulo: "Cerámicos y revestimientos",
-    texto: "Proyectos a medida en cerámicos, muros y terminaciones.",
-    imagen:
-      "https://images.unsplash.com/photo-1615971677499-5467cbd13f15?auto=format&fit=crop&w=900&q=80",
-    alt: "Revestimiento cerámico",
+    titulo: "Radieres y revestimientos",
+    texto:
+      "Radieres y revestimientos de piso como cerámicos, pisos vinílicos entre muchos. Asesoría integral de Ecowatt Chile.",
+    imagen: "/servicio-revestimientos.jpg",
+    alt: "Instalación de cerámicos en piso",
   },
 ];
 
