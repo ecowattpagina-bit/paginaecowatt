@@ -225,7 +225,7 @@ export default function Home() {
               Construcción y remodelación en Ñuble
             </h2>
             <p className="mt-5 max-w-lg text-base leading-relaxed text-white/80 sm:text-lg">
-              Desde Chillán Viejo armamos viviendas, remodelaciones, muebles en drywall y
+              Desde Chillán para Ñuble armamos viviendas, remodelaciones, muebles en drywall y
               revestimientos a medida. Trabajamos con cita para cotizar tu proyecto con calma.
             </p>
             <p className="mt-6 text-sm font-semibold text-sky">
