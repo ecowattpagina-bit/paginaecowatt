@@ -17,9 +17,9 @@ const body = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Ecowatt Chile | Construcción y remodelaciones",
+  title: "Ecowatt Chile | Asesoría en ingeniería y construcción",
   description:
-    "Remodelaciones, viviendas, casas prefabricadas, muebles en drywall y revestimientos en Chillán Viejo, Ñuble. Cotizaciones a medida.",
+    "Casas a medida, prefabricadas, energías renovables, quinchos, piscinas, mantenciones, renovaciones y remodelaciones en Chillán y Ñuble.",
 };
 
 export const viewport: Viewport = {

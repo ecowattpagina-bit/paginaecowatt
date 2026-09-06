@@ -82,10 +82,12 @@ export default function Home() {
               className="h-auto w-[min(100%,18rem)] object-contain drop-shadow-[0_4px_18px_rgba(0,0,0,0.35)] sm:w-[min(100%,22rem)] md:w-[min(100%,26rem)]"
             />
             <h1 className="mt-6 font-display text-2xl font-semibold leading-snug text-white sm:text-3xl md:text-4xl">
-              Construcción, remodelaciones y viviendas a medida
+              Asesoría en ingeniería y construcción
             </h1>
-            <p className="mt-4 max-w-md text-base leading-relaxed text-white/85 sm:text-lg">
-              Casas prefabricadas, drywall, cerámicos y obras en Chillán Viejo, Ñuble.
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg">
+              Casas a medida, casas prefabricadas, energías renovables, quinchos, piscinas,
+              mantenciones, renovaciones y remodelaciones en Chillán y la región de Ñuble.
+              Número uno en servicios y garantía.
             </p>
             <div className="mt-8 flex w-full flex-col gap-3 sm:max-w-none sm:flex-row sm:items-center">
               <Button asChild size="lg" className="min-h-12 w-full px-6 text-base font-bold sm:w-auto">
