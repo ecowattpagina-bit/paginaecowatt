@@ -98,7 +98,7 @@ export default function Home() {
                 variant="outline"
                 className="min-h-12 w-full border-white/35 bg-transparent px-6 text-base font-semibold text-white hover:border-white hover:bg-white/10 hover:text-white sm:w-auto"
               >
-                <a href="#servicios">Ver servicios</a>
+                <a href="#contacto">Contactarnos</a>
               </Button>
             </div>
           </div>
