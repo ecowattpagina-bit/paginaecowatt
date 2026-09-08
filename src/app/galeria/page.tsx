@@ -41,7 +41,7 @@ export default async function GaleriaPage() {
             Galería Ecowatt Chile
           </h1>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
-            Fotos y reels de{" "}
+            Obras, remodelaciones y proyectos de{" "}
             <a
               href={INSTAGRAM_URL}
               target="_blank"
@@ -50,7 +50,8 @@ export default async function GaleriaPage() {
             >
               @ecowattchile
             </a>
-            . Se actualiza sola cuando publican contenido nuevo.
+            {" "}
+            en Chillán y Ñuble.
           </p>
           <div className="mt-6">
             <Button asChild size="lg" className="min-h-12 font-bold">

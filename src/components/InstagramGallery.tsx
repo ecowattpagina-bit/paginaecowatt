@@ -45,20 +45,84 @@ export default function InstagramGallery({ items }: { items: IgMedia[] }) {
   }, [active]);
 
   if (items.length === 0) {
+    const fallback = [
+      {
+        src: "/trabajo-del-mes.jpg",
+        alt: "Trabajo del mes Ecowatt Chile",
+        label: "Trabajo del mes",
+      },
+      {
+        src: "/servicio-muebles.jpg",
+        alt: "Muebles a medida",
+        label: "Muebles a medida",
+      },
+      {
+        src: "/servicio-revestimientos.jpg",
+        alt: "Radieres y revestimientos",
+        label: "Revestimientos",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=900&q=80",
+        alt: "Remodelación de interior",
+        label: "Remodelaciones",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80",
+        alt: "Estructura de casa en obra",
+        label: "Casas prefabricadas",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=900&q=80",
+        alt: "Obra de construcción",
+        label: "Viviendas",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80",
+        alt: "Casa de estilo contemporáneo",
+        label: "Proyectos",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80",
+        alt: "Construcción en terreno",
+        label: "Obras",
+      },
+    ];
+
     return (
-      <div className="rounded-2xl border border-[#00558f]/14 bg-white px-6 py-14 text-center shadow-[0_16px_40px_-28px_rgba(0,61,104,0.35)]">
-        <p className="font-[family-name:var(--font-outfit)] text-xl font-bold text-[#0c2a3f]">
-          Conecta Instagram para ver el feed en vivo
-        </p>
-        <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-[#0c2a3f]/70 sm:text-base">
-          Agrega <code className="rounded bg-[#e8f6fc] px-1.5 py-0.5 text-[#00558f]">INSTAGRAM_ACCESS_TOKEN</code> en
-          Vercel. Mientras tanto puedes ver todo en la cuenta oficial.
-        </p>
-        <Button asChild size="lg" className="mt-6 min-h-12 font-bold">
-          <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
-            Abrir @ecowattchile
-          </a>
-        </Button>
+      <div>
+        <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
+          {fallback.map((item) => (
+            <li key={item.src}>
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative block aspect-square overflow-hidden rounded-xl bg-[#00558f]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4db8e8]"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#003d68]/90 to-transparent px-3 pb-3 pt-10 text-sm font-semibold text-white opacity-100 sm:opacity-0 sm:transition sm:group-hover:opacity-100">
+                  {item.label}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-10 flex flex-col items-center gap-3 text-center sm:mt-12">
+          <p className="max-w-md text-sm leading-relaxed text-[#0c2a3f]/75 sm:text-base">
+            Más fotos y reels de obras reales en nuestra cuenta oficial.
+          </p>
+          <Button asChild size="lg" className="min-h-12 font-bold">
+            <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
+              Ver @ecowattchile
+            </a>
+          </Button>
+        </div>
       </div>
     );
   }
