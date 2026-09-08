@@ -6,7 +6,13 @@ export const INSTAGRAM_HANDLE = "ecowattchile";
 export const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;
 export const FACEBOOK_URL = "https://www.facebook.com/ecowattchile";
 export const YOUTUBE_URL = "https://www.youtube.com/@ecowattchile";
-export const WEBSITE_URL = "http://www.ecowattchile.cl";
+export const SITE_URL = "https://www.ecowattchile.cl";
+export const WEBSITE_URL = SITE_URL;
+export const SITE_NAME = "Ecowatt Chile";
+export const SITE_TITLE =
+  "Ecowatt Chile | Asesoría en ingeniería y construcción";
+export const SITE_DESCRIPTION =
+  "Casas a medida, prefabricadas, energías renovables, quinchos, piscinas, mantenciones, renovaciones y remodelaciones en Chillán y la región de Ñuble.";
 export const EMAIL = "carayam@live.cl";
 export const EMAIL_URL = `mailto:${EMAIL}`;
 export const PHONE_DISPLAY = "+56 9 9546 7686";
@@ -44,12 +50,12 @@ export const SOCIAL_LINKS = [
     id: "web",
     label: "Sitio web",
     href: WEBSITE_URL,
-    className: "bg-sky hover:bg-wave text-navy-deep",
+    className: "bg-[#4db8e8] hover:bg-[#1a7ab8] text-[#003d68]",
   },
   {
     id: "email",
     label: "Correo",
     href: EMAIL_URL,
-    className: "bg-white/15 hover:bg-primary hover:text-navy-deep text-white",
+    className: "bg-white/15 hover:bg-[#fbb03b] hover:text-[#003d68] text-white",
   },
 ] as const;

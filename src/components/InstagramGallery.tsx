@@ -46,12 +46,12 @@ export default function InstagramGallery({ items }: { items: IgMedia[] }) {
 
   if (items.length === 0) {
     return (
-      <div className="rounded-2xl border border-border bg-card px-6 py-14 text-center shadow-[0_16px_40px_-28px_rgba(0,61,104,0.35)]">
-        <p className="font-display text-xl font-bold text-ink">
+      <div className="rounded-2xl border border-[#00558f]/14 bg-white px-6 py-14 text-center shadow-[0_16px_40px_-28px_rgba(0,61,104,0.35)]">
+        <p className="font-[family-name:var(--font-outfit)] text-xl font-bold text-[#0c2a3f]">
           Conecta Instagram para ver el feed en vivo
         </p>
-        <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-ink/70 sm:text-base">
-          Agrega <code className="rounded bg-foam px-1.5 py-0.5 text-navy">INSTAGRAM_ACCESS_TOKEN</code> en
+        <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-[#0c2a3f]/70 sm:text-base">
+          Agrega <code className="rounded bg-[#e8f6fc] px-1.5 py-0.5 text-[#00558f]">INSTAGRAM_ACCESS_TOKEN</code> en
           Vercel. Mientras tanto puedes ver todo en la cuenta oficial.
         </p>
         <Button asChild size="lg" className="mt-6 min-h-12 font-bold">
@@ -79,8 +79,8 @@ export default function InstagramGallery({ items }: { items: IgMedia[] }) {
             onClick={() => setFilter(value)}
             className={`min-h-10 rounded-full px-4 text-sm font-semibold transition ${
               filter === value
-                ? "bg-navy text-white"
-                : "bg-white text-navy ring-1 ring-navy/15 hover:bg-foam"
+                ? "bg-[#00558f] text-white"
+                : "bg-white text-[#00558f] ring-1 ring-[#00558f]/15 hover:bg-[#e8f6fc]"
             }`}
           >
             {label}
@@ -96,7 +96,7 @@ export default function InstagramGallery({ items }: { items: IgMedia[] }) {
               <button
                 type="button"
                 onClick={() => setActive(item)}
-                className="group relative aspect-square w-full overflow-hidden rounded-xl bg-navy/10 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky"
+                className="group relative aspect-square w-full overflow-hidden rounded-xl bg-[#00558f]/10 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4db8e8]"
               >
                 {src ? (
                   // eslint-disable-next-line @next/next/no-img-element
@@ -107,13 +107,13 @@ export default function InstagramGallery({ items }: { items: IgMedia[] }) {
                     loading="lazy"
                   />
                 ) : (
-                  <div className="flex h-full items-center justify-center bg-navy text-white/80">
+                  <div className="flex h-full items-center justify-center bg-[#00558f] text-white/80">
                     Ver post
                   </div>
                 )}
                 {isVideo(item) ? (
                   <span className="absolute inset-0 flex items-center justify-center bg-black/25">
-                    <span className="flex size-12 items-center justify-center rounded-full bg-white/95 text-navy shadow-lg">
+                    <span className="flex size-12 items-center justify-center rounded-full bg-white/95 text-[#00558f] shadow-lg">
                       <Play className="size-5 fill-current" />
                     </span>
                   </span>
@@ -133,7 +133,7 @@ export default function InstagramGallery({ items }: { items: IgMedia[] }) {
           onClick={() => setActive(null)}
         >
           <div
-            className="relative flex max-h-[100svh] w-full max-w-4xl flex-col overflow-hidden rounded-t-2xl bg-navy-deep sm:max-h-[90svh] sm:rounded-2xl"
+            className="relative flex max-h-[100svh] w-full max-w-4xl flex-col overflow-hidden rounded-t-2xl bg-[#003d68] sm:max-h-[90svh] sm:rounded-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between gap-3 border-b border-white/10 px-4 py-3">

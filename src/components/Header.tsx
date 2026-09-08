@@ -35,18 +35,20 @@ export default function Header({
     <header
       className={
         solid
-          ? "absolute inset-x-0 top-0 z-50 border-b border-white/10 bg-navy-deep/80 backdrop-blur-md"
+          ? "absolute inset-x-0 top-0 z-50 border-b border-white/10 bg-[#003d68]/80 backdrop-blur-md"
           : "absolute inset-x-0 top-0 z-50"
       }
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8 lg:px-10">
+      <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4 sm:px-8 lg:px-10">
         <Link href="/" className="relative z-10 block shrink-0">
           <Image
             src="/logo-ecowatt.png"
             alt="Ecowatt Chile"
             width={200}
             height={134}
-            className="h-12 w-auto max-w-[52vw] object-contain drop-shadow-[0_1px_8px_rgba(0,0,0,0.35)] sm:h-[4.25rem] sm:max-w-none"
+            quality={100}
+            unoptimized
+            className="h-11 w-auto max-w-[44vw] object-contain drop-shadow-[0_1px_8px_rgba(0,0,0,0.35)] sm:h-14 sm:max-w-none"
             priority
           />
         </Link>
@@ -55,7 +57,7 @@ export default function Header({
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium tracking-wide text-white/90 transition hover:text-primary"
+              className="text-sm font-medium tracking-wide text-white/90 transition hover:text-[#fbb03b]"
             >
               {link.label}
             </Link>
@@ -81,7 +83,7 @@ export default function Header({
           </SheetTrigger>
           <SheetContent
             side="right"
-            className="border-navy-deep bg-navy-deep text-white sm:max-w-xs [&_[data-slot=sheet-close]]:text-white"
+            className="border-[#003d68] bg-[#003d68] text-white sm:max-w-xs [&_[data-slot=sheet-close]]:text-white"
           >
             <SheetHeader>
               <SheetTitle className="text-left text-white">Menú</SheetTitle>

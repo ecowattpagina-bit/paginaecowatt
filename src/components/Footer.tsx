@@ -39,8 +39,8 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative overflow-hidden bg-navy-deep text-white">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sun via-sky to-wave" />
+    <footer className="relative overflow-hidden bg-[#003d68] text-white">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#fbb03b] via-[#4db8e8] to-[#1a7ab8]" />
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 pb-28 sm:grid-cols-2 sm:px-8 sm:pb-14 lg:grid-cols-4 lg:gap-8 lg:px-10">
         <div className="sm:col-span-2 lg:col-span-1">
           <Link href="/" className="inline-flex items-center gap-3">
@@ -52,7 +52,7 @@ export default function Footer() {
               className="h-14 w-auto object-contain drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)]"
             />
           </Link>
-          <p className="mt-4 font-display text-lg font-bold">Ecowatt Chile</p>
+          <p className="mt-4 font-[family-name:var(--font-outfit)] text-lg font-bold">Ecowatt Chile</p>
           <p className="mt-1 text-sm leading-relaxed text-white/65">
             Construcción, remodelaciones y viviendas a medida en Ñuble.
           </p>
@@ -73,7 +73,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#fbb03b]">
             Navegación
           </p>
           <ul className="mt-4 space-y-3">
@@ -81,7 +81,7 @@ export default function Footer() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-sm text-white/75 transition hover:text-primary"
+                  className="text-sm text-white/75 transition hover:text-[#fbb03b]"
                 >
                   {item.label}
                 </Link>
@@ -91,7 +91,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#fbb03b]">
             Redes
           </p>
           <ul className="mt-4 space-y-3 text-sm">
@@ -100,7 +100,7 @@ export default function Footer() {
                 href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-white/75 transition hover:text-primary"
+                className="inline-flex items-center gap-2 text-white/75 transition hover:text-[#fbb03b]"
               >
                 <InstagramIcon className="size-4 shrink-0 text-[#E4405F]" />
                 Instagram · @ecowattchile
@@ -111,7 +111,7 @@ export default function Footer() {
                 href={FACEBOOK_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-white/75 transition hover:text-primary"
+                className="inline-flex items-center gap-2 text-white/75 transition hover:text-[#fbb03b]"
               >
                 <FacebookIcon className="size-4 shrink-0 text-[#1877F2]" />
                 Facebook · Ecowatt Chile
@@ -122,7 +122,7 @@ export default function Footer() {
                 href={YOUTUBE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-white/75 transition hover:text-primary"
+                className="inline-flex items-center gap-2 text-white/75 transition hover:text-[#fbb03b]"
               >
                 <YouTubeIcon className="size-4 shrink-0 text-[#FF0000]" />
                 YouTube · Ecowatt Chile
@@ -133,7 +133,7 @@ export default function Footer() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-white/75 transition hover:text-primary"
+                className="inline-flex items-center gap-2 text-white/75 transition hover:text-[#fbb03b]"
               >
                 <WhatsAppIcon className="size-4 shrink-0 text-[#25D366]" />
                 WhatsApp · {PHONE_DISPLAY}
@@ -144,9 +144,9 @@ export default function Footer() {
                 href={WEBSITE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 break-all text-white/75 transition hover:text-primary"
+                className="inline-flex items-center gap-2 break-all text-white/75 transition hover:text-[#fbb03b]"
               >
-                <Globe className="size-4 shrink-0 text-sky" aria-hidden />
+                <Globe className="size-4 shrink-0 text-[#4db8e8]" aria-hidden />
                 www.ecowattchile.cl
               </a>
             </li>
@@ -154,12 +154,12 @@ export default function Footer() {
         </div>
 
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#fbb03b]">
             Contacto
           </p>
           <ul className="mt-4 space-y-4 text-sm text-white/75">
             <li className="flex gap-3">
-              <MapPin className="mt-0.5 size-4 shrink-0 text-sky" aria-hidden />
+              <MapPin className="mt-0.5 size-4 shrink-0 text-[#4db8e8]" aria-hidden />
               <span>
                 {ADDRESS_LINES[0]}
                 <br />
@@ -167,14 +167,14 @@ export default function Footer() {
               </span>
             </li>
             <li className="flex gap-3">
-              <Phone className="mt-0.5 size-4 shrink-0 text-sky" aria-hidden />
-              <a href={WHATSAPP_URL} className="transition hover:text-primary">
+              <Phone className="mt-0.5 size-4 shrink-0 text-[#4db8e8]" aria-hidden />
+              <a href={WHATSAPP_URL} className="transition hover:text-[#fbb03b]">
                 {PHONE_DISPLAY}
               </a>
             </li>
             <li className="flex gap-3">
-              <Mail className="mt-0.5 size-4 shrink-0 text-sky" aria-hidden />
-              <a href={EMAIL_URL} className="break-all transition hover:text-primary">
+              <Mail className="mt-0.5 size-4 shrink-0 text-[#4db8e8]" aria-hidden />
+              <a href={EMAIL_URL} className="break-all transition hover:text-[#fbb03b]">
                 {EMAIL}
               </a>
             </li>
