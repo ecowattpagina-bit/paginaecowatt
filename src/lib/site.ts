@@ -13,7 +13,7 @@ export const SITE_TITLE =
   "Ecowatt Chile | Asesoría en ingeniería y construcción";
 export const SITE_DESCRIPTION =
   "Casas a medida, prefabricadas, energías renovables, quinchos, piscinas, mantenciones, renovaciones y remodelaciones en Chillán y la región de Ñuble.";
-export const EMAIL = "carayam@live.cl";
+export const EMAIL = "contacto@ecowattchile.cl";
 export const EMAIL_URL = `mailto:${EMAIL}`;
 export const PHONE_DISPLAY = "+56 9 9546 7686";
 export const ADDRESS_LINES = [

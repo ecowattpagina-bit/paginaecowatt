@@ -1,15 +1,14 @@
 import Image from "next/image";
-import { MapPin, Mail, Globe } from "lucide-react";
+import Link from "next/link";
+import { ArrowUpRight, MapPin, Mail, Globe } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_URL, EMAIL, WEBSITE_URL } from "@/lib/site";
 import { TRABAJO_DEL_MES } from "@/lib/trabajo-del-mes";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import EcowattMedia from "@/components/EcowattMedia";
+import ContactForm from "@/components/ContactForm";
 
 const servicios = [
   {
@@ -18,15 +17,17 @@ const servicios = [
       "Paneles solares on-grid y off-grid. Venta, instalación y asesorías para tu hogar o empresa.",
     imagen: "/servicio-energias.jpg",
     alt: "Energías renovables Ecowatt Chile",
-    vertical: true,
+    href: "/sistemas-solares",
+    destacada: true,
   },
   {
     titulo: "Cotización sistemas solares",
     texto:
       "Cotización de sistemas solares a medida: diseño, venta e instalación con asesoría técnica.",
-    imagen: "/servicio-energias.jpg",
-    alt: "Cotización de sistemas solares",
-    vertical: true,
+    imagen:
+      "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=80",
+    alt: "Paneles solares en techo residencial",
+    href: "/sistemas-solares",
   },
   {
     titulo: "Remodelaciones",
@@ -119,72 +120,7 @@ export default function Home() {
               </div>
             </div>
 
-            <form
-              id="contacto"
-              action={`mailto:${EMAIL}`}
-              method="get"
-              encType="text/plain"
-              className="flex w-full flex-col gap-3 rounded-xl border border-white/15 bg-white/95 p-5 shadow-[0_18px_40px_-24px_rgba(0,0,0,0.55)] backdrop-blur-sm lg:max-w-sm"
-            >
-              <div>
-                <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-[#1a7ab8]">
-                  Contacto
-                </p>
-                <p className="mt-0.5 font-[family-name:var(--font-outfit)] text-lg font-bold text-[#0c2a3f]">
-                  Cotiza tu proyecto
-                </p>
-              </div>
-              <div className="space-y-1.5">
-                <Label htmlFor="nombre" className="text-xs">
-                  Nombre
-                </Label>
-                <Input
-                  id="nombre"
-                  name="nombre"
-                  type="text"
-                  required
-                  className="min-h-11 bg-[#e8f6fc] px-3 text-sm md:text-sm"
-                />
-              </div>
-              <div className="space-y-1.5">
-                <Label htmlFor="correo" className="text-xs">
-                  Correo
-                </Label>
-                <Input
-                  id="correo"
-                  name="correo"
-                  type="email"
-                  required
-                  className="min-h-11 bg-[#e8f6fc] px-3 text-sm md:text-sm"
-                />
-              </div>
-              <div className="space-y-1.5">
-                <Label htmlFor="mensaje" className="text-xs">
-                  Mensaje
-                </Label>
-                <Textarea
-                  id="mensaje"
-                  name="mensaje"
-                  rows={3}
-                  required
-                  className="min-h-20 resize-y bg-[#e8f6fc] px-3 py-2 text-sm md:text-sm"
-                />
-              </div>
-              <Button type="submit" size="lg" className="min-h-12 w-full text-sm font-bold">
-                Solicitar cita
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="min-h-12 w-full border-[#25D366] text-sm text-[#128C4B] hover:bg-[#25D366]/10 hover:text-[#128C4B] lg:hidden"
-              >
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                  <WhatsAppIcon className="size-4" />
-                  Hablar por WhatsApp
-                </a>
-              </Button>
-            </form>
+            <ContactForm />
           </div>
         </div>
         <div className="pointer-events-none absolute inset-x-0 bottom-0 overflow-hidden leading-none">
@@ -202,49 +138,80 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="servicios" className="bg-[#f4fafd] py-20 sm:py-28">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
-          <div className="max-w-xl">
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#1a7ab8]">
-              Servicios
-            </p>
-            <h2 className="mt-3 font-[family-name:var(--font-outfit)] text-3xl font-bold tracking-tight text-[#0c2a3f] sm:text-4xl">
-              Lo que hacemos
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-[#0c2a3f]/70 sm:text-lg">
-              Energías renovables, sistemas solares, construcción y remodelación. Cotización a
-              medida por WhatsApp.
-            </p>
+      <section id="servicios" className="relative overflow-hidden bg-[#f4fafd] py-20 sm:py-28">
+        <div className="pointer-events-none absolute -left-24 top-24 h-72 w-72 rounded-full bg-[#4db8e8]/15 blur-3xl" />
+        <div className="pointer-events-none absolute -right-20 bottom-10 h-64 w-64 rounded-full bg-[#fbb03b]/15 blur-3xl" />
+        <div className="relative mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <div className="max-w-xl">
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#1a7ab8]">
+                Servicios
+              </p>
+              <h2 className="mt-3 font-[family-name:var(--font-outfit)] text-3xl font-bold tracking-tight text-[#0c2a3f] sm:text-4xl">
+                Lo que hacemos
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-[#0c2a3f]/70 sm:text-lg">
+                Energías renovables, sistemas solares, construcción y remodelación. Cotización a
+                medida por WhatsApp.
+              </p>
+            </div>
+            <Button asChild size="lg" variant="outline" className="min-h-11 w-fit font-semibold">
+              <Link href="/sistemas-solares">
+                Ver sistemas solares
+                <ArrowUpRight className="size-4" />
+              </Link>
+            </Button>
           </div>
-          <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-            {servicios.map((item) => (
-              <li
-                key={item.titulo}
-                className="overflow-hidden rounded-2xl border border-[#00558f]/14 bg-white shadow-[0_16px_40px_-28px_rgba(0,61,104,0.35)]"
-              >
-                <div
-                  className={`relative w-full ${
-                    item.vertical ? "aspect-[3/4] bg-[#e8f6fc]" : "aspect-[4/3]"
+          <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+            {servicios.map((item) => {
+              const inner = (
+                <>
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#e8f6fc]">
+                    <Image
+                      src={item.imagen}
+                      alt={item.alt}
+                      fill
+                      className={`object-cover transition duration-700 group-hover:scale-105 ${
+                        item.destacada ? "object-top" : "object-center"
+                      }`}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#003d68]/55 via-transparent to-transparent opacity-80 transition group-hover:opacity-100" />
+                    {item.href ? (
+                      <span className="absolute right-3 top-3 inline-flex size-9 items-center justify-center rounded-full bg-white/95 text-[#00558f] shadow-sm transition group-hover:bg-[#fbb03b] group-hover:text-[#003d68]">
+                        <ArrowUpRight className="size-4" />
+                      </span>
+                    ) : null}
+                  </div>
+                  <div className="flex flex-1 flex-col p-5 sm:p-6">
+                    <h3 className="font-[family-name:var(--font-outfit)] text-lg font-bold text-[#0c2a3f] sm:text-xl">
+                      {item.titulo}
+                    </h3>
+                    <p className="mt-2 flex-1 text-sm leading-relaxed text-[#0c2a3f]/70 sm:text-base">
+                      {item.texto}
+                    </p>
+                    <span className="mt-4 inline-flex h-1 w-10 rounded-full bg-[#fbb03b] transition-all group-hover:w-16" />
+                  </div>
+                </>
+              );
+
+              return (
+                <li
+                  key={item.titulo}
+                  className={`group flex overflow-hidden rounded-2xl border border-[#00558f]/12 bg-white shadow-[0_18px_44px_-30px_rgba(0,61,104,0.45)] transition duration-300 hover:-translate-y-1 hover:border-[#4db8e8]/40 hover:shadow-[0_24px_50px_-28px_rgba(0,61,104,0.5)] ${
+                    item.destacada ? "sm:col-span-2 lg:col-span-1" : ""
                   }`}
                 >
-                  <Image
-                    src={item.imagen}
-                    alt={item.alt}
-                    fill
-                    className={item.vertical ? "object-contain object-center" : "object-cover"}
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                </div>
-                <div className="p-5">
-                  <h3 className="font-[family-name:var(--font-outfit)] text-lg font-bold text-[#0c2a3f] sm:text-xl">
-                    {item.titulo}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[#0c2a3f]/70 sm:text-base">
-                    {item.texto}
-                  </p>
-                </div>
-              </li>
-            ))}
+                  {item.href ? (
+                    <Link href={item.href} className="flex w-full flex-col focus-visible:outline-none">
+                      {inner}
+                    </Link>
+                  ) : (
+                    <div className="flex w-full flex-col">{inner}</div>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </div>
       </section>

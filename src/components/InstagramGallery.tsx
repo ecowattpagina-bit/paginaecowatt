@@ -47,7 +47,7 @@ export default function InstagramGallery({ items }: { items: IgMedia[] }) {
   if (items.length === 0) {
     const fallback = [
       {
-        src: "/trabajo-del-mes.jpg",
+        src: "/trabajo-del-mes-primavera.jpg",
         alt: "Trabajo del mes Ecowatt Chile",
         label: "Trabajo del mes",
       },
