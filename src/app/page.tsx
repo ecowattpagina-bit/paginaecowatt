@@ -9,8 +9,25 @@ import { TRABAJO_DEL_MES } from "@/lib/trabajo-del-mes";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import EcowattMedia from "@/components/EcowattMedia";
 
 const servicios = [
+  {
+    titulo: "Energías renovables",
+    texto:
+      "Paneles solares on-grid y off-grid. Venta, instalación y asesorías para tu hogar o empresa.",
+    imagen: "/servicio-energias.jpg",
+    alt: "Energías renovables Ecowatt Chile",
+    vertical: true,
+  },
+  {
+    titulo: "Cotización sistemas solares",
+    texto:
+      "Cotización de sistemas solares a medida: diseño, venta e instalación con asesoría técnica.",
+    imagen: "/servicio-energias.jpg",
+    alt: "Cotización de sistemas solares",
+    vertical: true,
+  },
   {
     titulo: "Remodelaciones",
     texto: "Cotizaciones a medida para renovar tu casa o local.",
@@ -195,7 +212,8 @@ export default function Home() {
               Lo que hacemos
             </h2>
             <p className="mt-4 text-base leading-relaxed text-[#0c2a3f]/70 sm:text-lg">
-              Los mismos servicios de nuestro catálogo. Cotización a medida por WhatsApp.
+              Energías renovables, sistemas solares, construcción y remodelación. Cotización a
+              medida por WhatsApp.
             </p>
           </div>
           <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
@@ -204,12 +222,16 @@ export default function Home() {
                 key={item.titulo}
                 className="overflow-hidden rounded-2xl border border-[#00558f]/14 bg-white shadow-[0_16px_40px_-28px_rgba(0,61,104,0.35)]"
               >
-                <div className="relative aspect-[4/3] w-full">
+                <div
+                  className={`relative w-full ${
+                    item.vertical ? "aspect-[3/4] bg-[#e8f6fc]" : "aspect-[4/3]"
+                  }`}
+                >
                   <Image
                     src={item.imagen}
                     alt={item.alt}
                     fill
-                    className="object-cover"
+                    className={item.vertical ? "object-contain object-center" : "object-cover"}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                 </div>
@@ -224,6 +246,34 @@ export default function Home() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section id="energias-renovables" className="relative overflow-hidden bg-[#003d68] py-16 sm:py-24">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#003d68] via-[#00558f] to-[#1a7ab8]/50" />
+        <div className="absolute -right-20 top-10 h-72 w-72 rounded-full bg-[#fbb03b]/20 blur-3xl" />
+        <div className="relative z-10 mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
+          <div className="max-w-2xl">
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#fbb03b]">
+              Energías renovables
+            </p>
+            <h2 className="mt-3 font-[family-name:var(--font-outfit)] text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Paneles solares on-grid y off-grid
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-white/80 sm:text-lg">
+              Cotización de sistemas solares, venta e instalación y asesorías técnicas para un
+              hogar que te cuida a ti y al planeta.
+            </p>
+          </div>
+          <EcowattMedia />
+          <div className="mt-8">
+            <Button asChild size="lg" className="min-h-12 font-bold">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                <WhatsAppIcon className="size-4" />
+                Cotizar sistema solar
+              </a>
+            </Button>
+          </div>
         </div>
       </section>
 

@@ -20,6 +20,7 @@ import {
 
 const nav = [
   { href: "/#servicios", label: "Servicios" },
+  { href: "/sistemas-solares", label: "Sistemas solares" },
   { href: "/#trabajo-del-mes", label: "Trabajo del mes" },
   { href: "/#nosotros", label: "Nosotros" },
   { href: "/galeria", label: "Galería" },
